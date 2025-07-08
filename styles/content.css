@@ -1,0 +1,196 @@
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 220px;
+  width: calc(100vw - 220px);
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.main-content.sidebar-hidden {
+  margin-left: 0;
+  width: 100vw;
+}
+
+.board-header {
+  padding: 12px 16px;
+  background: var(--color-secondary-dark);
+  border-bottom: 1px solid var(--color-border-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-header h2 {
+  font-size: 18px;
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Kanban Board */
+.kanban-board {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  overflow-x: auto;
+  flex: 1;
+  align-items: flex-start;
+  background: var(--color-bg-primary);
+  width: 100%;
+  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
+}
+
+.column {
+  background: var(--color-bg-secondary);
+  width: 260px;
+  min-width: 260px;
+  max-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 4px 12px var(--color-shadow-dark);
+  transition: all 0.2s ease;
+}
+
+.column.dragging {
+  opacity: 0.8;
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 8px 24px var(--color-shadow-darkest);
+  z-index: 1000;
+}
+
+.column-header {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-secondary);
+  background: var(--color-bg-tertiary);
+  position: relative;
+  cursor: grab;
+  transition: all 0.2s ease;
+}
+
+.column-header:hover {
+  background: var(--color-bg-quaternary);
+}
+
+.column-header:active {
+  cursor: grabbing;
+  background: var(--color-bg-tertiary);
+}
+
+.column-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--color-text-tertiary);
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background: var(--color-bg-quaternary);
+  color: var(--color-text-primary);
+}
+
+.cards-container {
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 100px;
+}
+
+.card {
+  background: var(--color-bg-primary);
+  padding: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px var(--color-shadow-dark);
+  cursor: move;
+  position: relative;
+  transition: all 0.2s;
+  border: 1px solid var(--color-border-primary);
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px var(--color-shadow-darker);
+  border-color: var(--color-border-tertiary);
+}
+
+.card.dragging {
+  opacity: var(--color-dragging-opacity);
+  transform: rotate(3deg);
+  box-shadow: 0 8px 24px var(--color-shadow-darkest);
+}
+
+.card-content {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+  word-wrap: break-word;
+}
+
+.card-delete {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: none;
+  border: none;
+  color: var(--color-text-quaternary);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  display: none;
+  transition: all 0.2s;
+}
+
+.card:hover .card-delete {
+  display: block;
+}
+
+.card-delete:hover {
+  background: var(--color-error);
+  color: var(--color-text-primary);
+}
+
+.add-card-btn {
+  margin: 10px;
+  padding: 8px 12px;
+  background: none;
+  border: 1px solid var(--color-border-secondary);
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.add-card-btn:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-tertiary);
+}
+
+/* Drag and Drop */
+.column.drag-over {
+  background: var(--color-drag-over);
+  border-color: var(--color-drag-border);
+}
+
+.cards-container.drag-over {
+  background: var(--color-overlay-light);
+  border: 2px dashed var(--color-drag-border);
+}

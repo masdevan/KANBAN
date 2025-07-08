@@ -1,0 +1,322 @@
+
+/* Sidebar Styles */
+.sidebar {
+  width: 220px;
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  padding: 16px;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 44px;
+  height: calc(100vh - 44px - 36px);
+  z-index: 999;
+  border-right: 1px solid var(--color-border-primary);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar-header h3 {
+  font-size: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-primary);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.board-item {
+  padding: 8px 12px;
+  margin: 4px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.board-item:hover {
+  background: var(--color-bg-primary);
+  border-color: var(--color-border-secondary);
+}
+
+.board-item.active {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border-tertiary);
+}
+
+.board-icon {
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.board-name {
+  flex: 1;
+  font-size: 14px;
+}
+
+.add-board-modal .icon-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border: 1px solid var(--color-border-secondary);
+  padding: 8px;
+  background: var(--color-bg-primary);
+}
+
+.icon-option {
+  padding: 8px;
+  border: 1px solid var(--color-border-secondary);
+  background: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.icon-option:hover {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border-tertiary);
+}
+
+.icon-option.selected {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.icon-option {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 20px;
+  background: var(--color-bg-primary);
+}
+
+.icon-option:hover {
+  border-color: var(--color-border-tertiary);
+  background: var(--color-bg-tertiary);
+}
+
+.icon-option.selected {
+  border-color: var(--color-info);
+  background: var(--color-bg-secondary);
+}
+
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--color-bg-secondary);
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid var(--color-border-primary);
+  box-shadow: 0 8px 32px var(--color-shadow-darkest);
+  overflow: hidden;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border-secondary);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-info);
+}
+
+.image-preview {
+  margin-top: 8px;
+  min-height: 60px;
+  border: 2px dashed var(--color-border-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-primary);
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-header {
+  padding: 16px 20px;
+  background: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  font-size: 16px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--color-bg-quaternary);
+  color: var(--color-text-primary);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.background-section {
+  margin-bottom: 24px;
+}
+
+.background-section h4 {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.background-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.background-option {
+  width: 100%;
+  height: 60px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.background-option:hover {
+  border-color: var(--color-border-tertiary);
+  transform: scale(1.05);
+}
+
+.background-option.selected {
+  border-color: var(--color-info);
+  box-shadow: 0 0 12px rgba(52, 152, 219, 0.3);
+}
+
+.upload-section {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.upload-btn {
+  padding: 8px 16px;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-primary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.upload-btn:hover {
+  background: var(--color-bg-quaternary);
+  border-color: var(--color-border-secondary);
+}
+
+.color-section {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#color-picker {
+  width: 60px;
+  height: 40px;
+  border: 1px solid var(--color-border-primary);
+  background: none;
+  cursor: pointer;
+}
+
+.apply-color-btn {
+  padding: 8px 16px;
+  background: var(--color-info);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.apply-color-btn:hover {
+  background: #2980b9;
+}

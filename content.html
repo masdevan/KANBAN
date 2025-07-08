@@ -1,0 +1,47 @@
+
+<main class="main-content">
+  <div class="board-header">
+    <h2 id="current-board-title">Main Board</h2>
+    <button class="btn btn-secondary" id="add-column-btn"><i class="fas fa-plus"></i> Add Column</button>
+  </div>
+  
+  <div class="kanban-board" id="kanban-board">
+    <div class="column" data-column-id="todo">
+      <div class="column-header">
+        <h3 class="column-title">To Do</h3>
+        <button class="btn-icon" onclick="deleteColumn('todo')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cards-container" data-column="todo">
+        <div class="card" draggable="true" data-card-id="card-1">
+          <div class="card-content">Sample task 1</div>
+          <button class="card-delete" onclick="deleteCard('card-1')"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard('todo')"><i class="fas fa-plus"></i> Add a card</button>
+    </div>
+    
+    <div class="column" data-column-id="in-progress">
+      <div class="column-header">
+        <h3 class="column-title">In Progress</h3>
+        <button class="btn-icon" onclick="deleteColumn('in-progress')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cards-container" data-column="in-progress">
+        <div class="card" draggable="true" data-card-id="card-2">
+          <div class="card-content">Sample task 2</div>
+          <button class="card-delete" onclick="deleteCard('card-2')"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+      <button class="add-card-btn" onclick="addCard('in-progress')"><i class="fas fa-plus"></i> Add a card</button>
+    </div>
+    
+    <div class="column" data-column-id="done">
+      <div class="column-header">
+        <h3 class="column-title">Done</h3>
+        <button class="btn-icon" onclick="deleteColumn('done')"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cards-container" data-column="done">
+      </div>
+      <button class="add-card-btn" onclick="addCard('done')"><i class="fas fa-plus"></i> Add a card</button>
+    </div>
+  </div>
+</main>
