@@ -1,0 +1,26 @@
+name: Auto Pull to VPS
+
+on:
+  push:
+    branches:
+      
+main
+
+jobs:
+  deploy:
+    name: Pull code from GitHub to VPS
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      
+name: Connect and Pull via SSH
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /var/www/devan.connecthinkspace.com
+          git pull origin main
